@@ -1,16 +1,17 @@
-## Hi there 👋
+### 👋 Hey, I'm Nikhil!
+🎓 Master's in Computer Science | 💻 Passionate about DSA & Backend Development  
+📍 Currently in the U.S. | 👀 Actively seeking Internship/Full-time roles (Dec 2025 Graduate)
 
-<!--
-**Nikhil-kurmachalam/Nikhil-Kurmachalam** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
 
-Here are some ideas to get you started:
+### 🔧 Tech Stack
+- 💻 Languages: Java, Python, JavaScript, SQL  
+- 🌐 Web: HTML, CSS, React, Node.js  
+- 🧠 CS Fundamentals: Data Structures, Algorithms, OOP  
+- 🛢️ Databases: MySQL, MongoDB  
+- ☁️ Tools: Git, GitHub, Postman, VS Code, Jupyter Notebook
+------------------------------
+### 🚀 Current Goals
+- Contribute to Open Source
+- Build real-world full-stack projects
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
