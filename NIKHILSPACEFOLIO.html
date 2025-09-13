@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil Kurmachalam - Software Engineer</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0a192f;
+      color: #ccd6f6;
+      scroll-behavior: smooth;
+    }
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle linear infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #64ffda;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #64ffda, #4fc3f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      bottom: -10px;
+      left: 0;
+      background: linear-gradient(90deg, #64ffda, #4fc3f7);
+    }
+    .project-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(23, 42, 69, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(100, 255, 218, 0.1);
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border-color: rgba(100, 255, 218, 0.3);
+    }
+    .skill-pill {
+      background: rgba(100, 255, 218, 0.1);
+      border: 1px solid rgba(100, 255, 218, 0.2);
+    }
+    .timeline-item {
+      border-left: 2px solid #64ffda;
+    }
+    .company-btn {
+      transition: all 0.3s;
+    }
+    .company-btn.active {
+      background: rgba(100, 255, 218, 0.1);
+      border-color: #64ffda;
+    }
+  </style>
+</head>
+<body class="relative overflow-x-hidden">
+  <!-- Animated stars background -->
+  <div id="stars-container" class="fixed inset-0 z-0 overflow-hidden"></div>
+
+  <!-- Navigation -->
+  <nav class="bg-navy-900 bg-opacity-90 backdrop-filter backdrop-blur-lg fixed w-full z-50 py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold gradient-text flex items-center">
+        <i class="fas fa-rocket mr-2"></i>Nikhil Kurmachalam
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="nav-link text-lightest-slate hover:text-teal">About</a>
+        <a href="#skills" class="nav-link text-lightest-slate hover:text-teal">Skills</a>
+        <a href="#experience" class="nav-link text-lightest-slate hover:text-teal">Experience</a>
+        <a href="#projects" class="nav-link text-lightest-slate hover:text-teal">Projects</a>
+        <a href="#education" class="nav-link text-lightest-slate hover:text-teal">Education</a>
+        <a href="#contact" class="nav-link text-lightest-slate hover:text-teal">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-teal focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-navy-light bg-opacity-95 px-6 pt-2 pb-4">
+      <div class="flex flex-col space-y-3">
+        <a href="#about" class="py-2 hover:text-teal">About</a>
+        <a href="#skills" class="py-2 hover:text-teal">Skills</a>
+        <a href="#experience" class="py-2 hover:text-teal">Experience</a>
+        <a href="#projects" class="py-2 hover:text-teal">Projects</a>
+        <a href="#education" class="py-2 hover:text-teal">Education</a>
+        <a href="#contact" class="py-2 hover:text-teal">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="pt-32 pb-20 relative z-10">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
+      <div class="md:w-1/2">
+        <div class="mb-6">
+          <span class="bg-teal bg-opacity-10 text-teal text-sm px-4 py-1 rounded-full">Software Engineer</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="gradient-text">Nikhil</span> <i class="fas fa-hand-wave text-yellow-300"></i></h1>
+        <h2 class="text-xl md:text-2xl font-semibold mb-6 text-light-slate">Cloud & Data Enthusiast</h2>
+        <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+          Results-driven Software Engineer with 4+ years of experience in building scalable solutions using Java, Python, Azure, Power Platform, and Data Engineering tools. Passionate about cloud, automation, and data-driven applications.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <a href="https://github.com/yourgithub" target="_blank" class="bg-teal bg-opacity-10 text-teal px-5 py-3 rounded-md font-medium hover:bg-opacity-20 flex items-center gap-2 transition-all">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/kurmachalamn" target="_blank" class="bg-teal text-navy-dark px-5 py-3 rounded-md font-medium hover:bg-teal-400 flex items-center gap-2 transition-all">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="#contact" class="border border-teal text-teal px-5 py-3 rounded-md font-medium hover:bg-teal hover:bg-opacity-10 flex items-center gap-2 transition-all">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
+      </div>
+      
+      <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+        <div class="relative">
+          <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-teal-400 to-indigo-500 rounded-full overflow-hidden shadow-2xl border-4 border-navy-light">
+            <!-- Placeholder for profile image with space theme -->
+            <div class="w-full h-full bg-navy-light flex items-center justify-center relative">
+              <div class="absolute inset-0 bg-starfield-pattern opacity-20"></div>
+			  <img src="C:\Users\kurma\Downloads\1747438921802.jpeg" alt="Nikhil Kurmachalam" class="w-full h-full object-cover">
+             <!-- <span class="text-6xl text-teal font-bold z-10">NK</span> -->
+            </div>
+          </div>
+          <div class="absolute -bottom-2 -right-2 bg-navy-light text-teal px-4 py-2 rounded-lg shadow-md border border-teal border-opacity-20">
+            <span class="font-semibold">Open to Work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 relative z-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-16 text-center section-title">Technical Skills</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl border border-teal border-opacity-10">
+          <h3 class="font-semibold mb-4 text-lg flex items-center gap-2"><i class="fas fa-code text-teal"></i> Languages</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Java</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Python</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">SQL</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">KQL</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">PySpark</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">C#</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">JavaScript</span>
+          </div>
+        </div>
+        
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl border border-teal border-opacity-10">
+          <h3 class="font-semibold mb-4 text-lg flex items-center gap-2"><i class="fas fa-cubes text-teal"></i> Frameworks & Libraries</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">.NET</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">MVC</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Power Apps</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Power Automate</span>
+          </div>
+        </div>
+        
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl border border-teal border-opacity-10">
+          <h3 class="font-semibold mb-4 text-lg flex items-center gap-2"><i class="fas fa-cloud text-teal"></i> Cloud & Platforms</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Azure ADF</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Logic Apps</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">ADX</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">AWS EC2</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">AWS Lambda</span>
+          </div>
+        </div>
+        
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl border border-teal border-opacity-10">
+          <h3 class="font-semibold mb-4 text-lg flex items-center gap-2"><i class="fas fa-database text-teal"></i> Databases & Tools</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Azure SQL</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">SSMS</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Git</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">REST APIs</span>
+            <span class="skill-pill px-4 py-2 rounded-full text-sm">Power BI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-navy-light bg-opacity-30 relative z-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-16 text-center section-title">Work Experience</h2>
+      
+      <div class="max-w-4xl mx-auto relative">
+        <!-- Timeline line -->
+        <div class="absolute left-7 h-full border border-dashed border-teal border-opacity-30"></div>
+        
+        <div class="space-y-12 relative">
+          <div class="flex">
+            <div class="flex-shrink-0 mr-8 relative">
+              <div class="w-14 h-14 bg-teal rounded-full flex items-center justify-center text-navy-dark shadow-lg">
+                <i class="fas fa-briefcase text-xl"></i>
+              </div>
+            </div>
+            <div class="bg-navy-light bg-opacity-50 rounded-xl p-6 hover:shadow-lg transition-all flex-grow border-l-4 border-teal">
+              <h3 class="text-xl font-bold">Senior Software Engineer <span class="text-teal">| LTIMindtree</span></h3>
+              <p class="text-slate-400 text-sm mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i>May 2022 – Dec 2023 · Hyderabad, India</p>
+              <ul class="space-y-2 text-slate-300">
+                <li class="flex items-start">
+                  <span class="text-teal mr-2 mt-1">•</span>
+                  <span>Led development of telemetry dashboards and automation flows, improving reporting efficiency by 40%.</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-teal mr-2 mt-1">•</span>
+                  <span>Built PowerApps and KQL automation tools, reducing manual effort by 60%.</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-teal mr-2 mt-1">•</span>
+                  <span>Developed Power BI reports, SQL/KQL queries for data analytics.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="flex">
+            <div class="flex-shrink-0 mr-8 relative">
+              <div class="w-14 h-14 bg-teal rounded-full flex items-center justify-center text-navy-dark shadow-lg">
+                <i class="fas fa-laptop-code text-xl"></i>
+              </div>
+            </div>
+            <div class="bg-navy-light bg-opacity-50 rounded-xl p-6 hover:shadow-lg transition-all flex-grow border-l-4 border-teal">
+              <h3 class="text-xl font-bold">Software Engineer <span class="text-teal">| MAQ Software</span></h3>
+              <p class="text-slate-400 text-sm mb-4 flex items-center"><i class="far fa-calendar-alt mr-2"></i>Aug 2019 – May 2022 · Hyderabad, India</p>
+              <ul class="space-y-2 text-slate-300">
+                <li class="flex items-start">
+                  <span class="text-teal mr-2 mt-1">•</span>
+                  <span>Built scalable pipelines using Databricks & PySpark for a global gaming platform.</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-teal mr-2 mt-1">•</span>
+                  <span>Developed PowerApps integrated with SQL Server for real-time dashboards.</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-teal mr-2 mt-1">•</span>
+                  <span>Migrated Azure services and implemented workflows using ADF, Logic Apps, and Azure DevOps.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 relative z-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center section-title">Projects</h2>
+      
+      <!-- Company filter buttons -->
+      <div class="flex justify-center mb-12 gap-4">
+        <button class="company-btn active px-4 py-2 rounded-md border border-teal border-opacity-20" data-company="all">All Projects</button>
+        <button class="company-btn px-4 py-2 rounded-md border border-teal border-opacity-20" data-company="ltimindtree">LTIMindtree</button>
+        <button class="company-btn px-4 py-2 rounded-md border border-teal border-opacity-20" data-company="maq">MAQ Software</button>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- LTIMindtree Projects -->
+        <div class="project-card p-6 rounded-xl" data-company="ltimindtree">
+          <div class="text-teal text-2xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="font-semibold mb-2 text-lg">Telemetry Dashboards</h3>
+          <p class="text-slate-400 mb-4">Led development of telemetry dashboards and automation flows, improving reporting efficiency by 40%.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Power BI</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">KQL</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Azure</span>
+          </div>
+        </div>
+        
+        <div class="project-card p-6 rounded-xl" data-company="ltimindtree">
+          <div class="text-teal text-2xl mb-4">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="font-semibold mb-2 text-lg">Automation Tools</h3>
+          <p class="text-slate-400 mb-4">Built PowerApps and KQL automation tools, reducing manual effort by 60%.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">PowerApps</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">KQL</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Automation</span>
+          </div>
+        </div>
+        
+        <!-- MAQ Software Projects -->
+        <div class="project-card p-6 rounded-xl" data-company="maq">
+          <div class="text-teal text-2xl mb-4">
+            <i class="fas fa-stream"></i>
+          </div>
+          <h3 class="font-semibold mb-2 text-lg">Data Pipelines</h3>
+          <p class="text-slate-400 mb-4">Built scalable pipelines using Databricks & PySpark for a global gaming platform.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">PySpark</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Databricks</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Azure</span>
+			 <span class="skill-pill px-3 py-1 rounded-full text-xs">HTML,CSS </span>
+          </div>
+        </div>
+        
+        <div class="project-card p-6 rounded-xl" data-company="maq">
+          <div class="text-teal text-2xl mb-4">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3 class="font-semibold mb-2 text-lg">Real-time Dashboards</h3>
+          <p class="text-slate-400 mb-4">Developed PowerApps integrated with SQL Server for real-time dashboards.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">PowerApps</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">SQL Server</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Dashboards</span>
+          </div>
+        </div>
+        
+        <div class="project-card p-6 rounded-xl" data-company="maq">
+          <div class="text-teal text-2xl mb-4">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <h3 class="font-semibold mb-2 text-lg">Azure Migration</h3>
+          <p class="text-slate-400 mb-4">Migrated Azure services and implemented workflows using ADF, Logic Apps, and Azure DevOps.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Azure</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">ADF</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Logic Apps</span>
+          </div>
+        </div>
+        
+        <div class="project-card p-6 rounded-xl" data-company="ltimindtree">
+          <div class="text-teal text-2xl mb-4">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3 class="font-semibold mb-2 text-lg">Data Analytics</h3>
+          <p class="text-slate-400 mb-4">Developed Power BI reports, SQL/KQL queries for data analytics.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">Power BI</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">SQL</span>
+            <span class="skill-pill px-3 py-1 rounded-full text-xs">KQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-navy-light bg-opacity-30 relative z-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-16 text-center section-title">Education</h2>
+      
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div class="bg-navy-light bg-opacity-50 rounded-xl p-6 border-l-4 border-teal">
+          <h3 class="text-xl font-bold">Master of Science in Computer Science</h3>
+          <p class="text-teal">University of Alabama, Birmingham, USA (2024 – 2025) | CGPA: 3.8/4.0</p>
+          <p class="text-sm text-slate-300 mt-2">Relevant Coursework: Algorithms & Data Structures, Machine Learning, Deep Learning, Cloud Computing</p>
+        </div>
+        
+        <div class="bg-navy-light bg-opacity-50 rounded-xl p-6 border-l-4 border-teal">
+          <h3 class="text-xl font-bold">Bachelor of Technology in CSE</h3>
+          <p class="text-teal">CMR Institute of Technology, India (2016 – 2020)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative z-10">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-16 text-center section-title">Contact Me</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl text-center border border-teal border-opacity-10">
+          <i class="fas fa-envelope text-3xl text-teal mb-4"></i>
+          <h3 class="font-semibold mb-2">Email</h3>
+          <p class="text-slate-300">kurmachalamnikhil@gmail.com</p>
+        </div>
+        
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl text-center border border-teal border-opacity-10">
+          <i class="fas fa-phone text-3xl text-teal mb-4"></i>
+          <h3 class="font-semibold mb-2">Phone</h3>
+          <p class="text-slate-300">+1 205-909-8063</p>
+        </div>
+        
+        <div class="bg-navy-light bg-opacity-50 p-6 rounded-xl text-center border border-teal border-opacity-10">
+          <i class="fas fa-map-marker-alt text-3xl text-teal mb-4"></i>
+          <h3 class="font-semibold mb-2">Location</h3>
+          <p class="text-slate-300">Birmingham, AL, USA</p>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="max-w-2xl mx-auto mt-16 bg-navy-light bg-opacity-50 p-8 rounded-xl border border-teal border-opacity-10">
+        <h3 class="text-xl font-bold mb-6 text-center">Send me a message</h3>
+        <form>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="name" class="block text-sm font-medium mb-2">Name</label>
+              <input type="text" id="name" class="w-full bg-navy-light border border-teal border-opacity-20 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Your name">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2">Email</label>
+              <input type="email" id="email" class="w-full bg-navy-light border border-teal border-opacity-20 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Your email">
+            </div>
+          </div>
+          <div class="mb-6">
+            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+            <input type="text" id="subject" class="w-full bg-navy-light border border-teal border-opacity-20 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Subject">
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+            <textarea id="message" rows="4" class="w-full bg-navy-light border border-teal border-opacity-20 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Your message"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-teal text-navy-dark font-medium py-3 rounded-md hover:bg-teal-400 transition-all">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-dark py-10 relative z-10">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <div>
+        <h2 class="text-xl font-bold gradient-text">Nikhil Kurmachalam</h2>
+        <p class="text-slate-400">Software Engineer</p>
+      </div>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href="mailto:kurmachalamnikhil@gmail.com" class="text-slate-400 hover:text-teal text-xl"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/kurmachalamn" target="_blank" class="text-slate-400 hover:text-teal text-xl"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yourgithub" target="_blank" class="text-slate-400 hover:text-teal text-xl"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="text-center text-slate-500 mt-6">
+      <p>&copy; 2025 Nikhil Kurmachalam. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Create animated stars
+    function createStars() {
+      const starsContainer = document.getElementById('stars-container');
+      const starsCount = 150;
+      
+      for (let i = 0; i < starsCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        const size = Math.random() * 3;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        
+        starsContainer.appendChild(star);
+      }
+    }
+    
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Company filter for projects
+    const companyButtons = document.querySelectorAll('.company-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    companyButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const company = this.getAttribute('data-company');
+        
+        // Update active button
+        companyButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          if (company === 'all' || card.getAttribute('data-company') === company) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-lg');
+      } else {
+        navbar.classList.remove('shadow-lg');
+      }
+    });
+    
+    // Initialize when page loads
+    window.addEventListener('DOMContentLoaded', function() {
+      createStars();
+    });
+  </script>
+</body>
+</html>
